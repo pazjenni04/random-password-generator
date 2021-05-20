@@ -14,7 +14,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 //function generates the components of the password to include what the user is requesting
-function generatePassword() {
+function generatePassword(pLength) {
   var password = ' '; //this variable expects some value to it
   var characters = ' '; //empty string, but as the user confirms the following vars then will generate a new string 
 
