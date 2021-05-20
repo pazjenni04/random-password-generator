@@ -13,41 +13,49 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-
 //function generates the components of the password to include what the user is requesting
 function generatePassword() {
   var password = ' '; //this variable expects some value to it
-  var characters = []; //creates new array from the chosen components the user chooses in order to get password generated from
+  var characters = ' '; //empty string, but as the user confirms the following vars then will generate a new string 
 
-  var passLength = prompt("How many characters would you like your password?  8 characters min - 128 characters max.");
-  
-  if (passLength < 8 || passLength > 128) {
-    prompt("Password must be 8 - 128 characters."); //Ensures that user only uses the numbers requested
+  var pLength = prompt("How many characters would you like your password?  8 characters min - 128 characters max.");
 
-  var isUpperCase = confirm("Do you want it to contain upper case letters?");
   
-  //if user confirms uppercase letters, this will ensure that it's included in the password
-  if(isUpperCase) {
-    characters.push(upperLetters);
+  if (pLength < 8 || pLength > 128) {
+    prompt("Password must be 8 - 128 characters. Try Again."); //Ensures that user only uses the numbers requested
+
+  }
+  var isUpperCase = confirm("Do you want it to contain any upper case letters?");
+  
+  //if user confirms uppercase letters, this will ensure that Upper case letters gets added into the characters string
+  if(isUpperCase === true) {
+    characters+= upperLetters;
   };
 
   var symbolEl = confirm("Would you like to include a symbol?");
 
-  //if user confirms symbols, this will ensure that it's included in the password
-  if(symbolEl) {
-    characters.push(symbol);
+  //if user confirms symbols, this will ensure that symbols gets added into the characters string
+  if(symbolEl === true) {
+    characters+= symbol;
   };
 
-  var numberEl = confirm("Would you like to include a number?");
+  var numberEl = confirm("Would you like to include numbers?");
   
-  //if user confirms numbers, this will ensure that it's included in the password
-  if(numberEl) {
-    characters.push(number);
+  //if user confirms numbers, this will ensure that numbers gets added into the characters string
+  if(numberEl === true) {
+    characters+= number;
   };
  
-  //for loop generates password with included add-ons to character array and limiting to the length requested
-for(var i=0; i < passLength.length; i++){
-  password += characters.charAt(Math.floor(Math.random() * passLength.length));
+  //if user confirms lower case letters, this will ensure that lower case letters gets added into the characters string
+  var isLowerCase = confirm("Would you like to include lower case letters?");
+
+  if(isLowerCase === true) {
+    characters+= lowerLetters;
+  }
+
+  //for loop generates password with included add-ons to character string and limiting to the length requested
+for(var i=0; i < pLength; i++){
+  password += characters.charAt(Math.floor(Math.random() * characters.length));
 };
 
 return password;
@@ -56,11 +64,11 @@ return password;
 
 
 //Write password to the #password input
-//function writePassword() {
-  //var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
- // passwordText.value = password;
+  passwordText.value = password;
 
 
-//}
+}
