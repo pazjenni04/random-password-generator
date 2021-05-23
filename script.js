@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 //global variables that we'll use to generate our passwords
-var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var symbol = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "?", "/", "[", "]", "{", "}", "+", "=", "-", "_", ".", ","];
-var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var number = "0123456789";
+var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var symbol = "!@#$%^&*()-_+={[]}?/";
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
 
 
 // addEventListener to generate button
@@ -24,7 +24,8 @@ function generatePassword(pLength) {
   if (pLength < 8 || pLength > 128) {
     prompt("Password must be 8 - 128 characters. Try Again."); //Ensures that user only uses the numbers requested
 
-  }
+  };
+
   var isUpperCase = confirm("Do you want it to contain any upper case letters?");
   
   //if user confirms uppercase letters, this will ensure that Upper case letters gets added into the characters string
@@ -36,7 +37,7 @@ function generatePassword(pLength) {
 
   //if user confirms symbols, this will ensure that symbols gets added into the characters string
   if(symbolEl === true) {
-    characters+= symbol;
+    characters+= symbol; 
   };
 
   var numberEl = confirm("Would you like to include numbers?");
@@ -51,7 +52,11 @@ function generatePassword(pLength) {
 
   if(isLowerCase === true) {
     characters+= lowerLetters;
-  }
+  };
+
+  if(symbolEl !==true && isUpperCase !== true && numberEl !== true && isLowerCase !==true) {
+    confirm("You must choose at least one of the criteria's prompted in order to generate password.  Please try again.")
+  };
 
   //for loop generates password with included add-ons to character string and limiting to the length requested
 for(var i=0; i < pLength; i++){
