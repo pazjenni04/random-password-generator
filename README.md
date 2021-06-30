@@ -1,6 +1,8 @@
 # random-password-generator
 The objective of this webpage is to assist users with generating secure and unique passwords everytime.  By following the instructions in the prompted banners that are presented to the user, the user will respond to each prompted banner in order confirm which criteria they prefer the password to include.
 
+List of technologies used: Javascript, CSS, HTML
+
 When the user first clicks on the "Generate password" button, the first prompt will appear and will instruct the user to enter the character length the user prefers their password to be.  Once the user confirms the remainder of the prompts to follow, their final password should be the length they entered when prompted this specific question.  
 
 [The following image depicts the button that the user will press in order to proceed to the following step] - 
