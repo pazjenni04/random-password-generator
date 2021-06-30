@@ -46,3 +46,5 @@ If the user does not choose any of the criteria presented to them when prompted,
 ![The following image shows an example of the banner that will prompt if the user clicks cancel for all criteria options](https://raw.githubusercontent.com/pazjenni04/random-password-generator/main/images/must-choose-one.PNG)
 
 Webpage link: https://pazjenni04.github.io/random-password-generator/
+
+Contact info: pazjenni1331@gmail.com
